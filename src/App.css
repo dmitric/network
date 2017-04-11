@@ -1,0 +1,86 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes pulsate {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+svg {
+  animation: pulsate 6s ease-in-out infinite;
+}
+
+.dashed {
+  animation: dash 200s linear;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 1000;
+  }
+}
+
+.color-pickers {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 2;
+}
+
+.color-pickers .color {
+  width: 36px;
+  height: 14px;
+}
+
+.color-pickers .swatch {
+  padding: 5px;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+  display: inline-block;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+
+@media (max-width: 500px) {
+  .color-pickers {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    top: 0px;
+    left: 0px;
+    margin-top: 5px;
+  }
+
+  .color-pickers .swatch {
+    width: 98%;
+    margin: 0 auto;
+  }
+
+  .color-pickers .color {
+    width: 100%;
+    height: 30px;
+  }
+}
