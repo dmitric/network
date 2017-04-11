@@ -2,6 +2,7 @@
   "name": "network",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://dmitric.github.io/network",
   "dependencies": {
     "hammerjs": "^2.0.8",
     "lodash.range": "^3.2.0",
