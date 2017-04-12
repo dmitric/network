@@ -71,7 +71,8 @@ svg {
     box-sizing: border-box;
     top: 0px;
     left: 0px;
-    margin-top: 5px;
+    padding-top: 5px;
+    background: white;
   }
 
   .color-pickers .swatch {

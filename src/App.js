@@ -7,27 +7,10 @@ import { SketchPicker } from 'react-color'
 import reactCSS from 'reactcss'
 import tinycolor from 'tinycolor2'
 
-
-/*
 const colorSet = {
-  lineColor: '#333',
-  backgroundColor: '#fafafa',
-  dottedColor: '#AA1111',
-}
-*/
-
-/*
-const colorSet = {
-  lineColor: 'yellow',
-  backgroundColor: '#5c6bc0',
-  dottedColor: 'white',
-}
-*/
-
-const colorSet = {
-  lineColor: 'white',
-  backgroundColor: '#BF5930',
-  dottedColor: '#FF7640',
+  lineColor: '#ffffff',
+  backgroundColor: '#111111',
+  dottedColor: '#f5f5f5',
 }
 
 class App extends Component {
@@ -45,7 +28,9 @@ class App extends Component {
       displayColorPickers: true,
       width: 20,
       height: 20,
-      padding: 10
+      padding: 10,
+      maxSides: 8,
+      minSides: 1
     }
   }
 
@@ -61,7 +46,10 @@ class App extends Component {
     const dim = Math.min(width, height) - this.state.padding * 2
     const settings = { width: dim , height: dim }
     
-    if (width < 600) {
+    if (width < 400) {
+      settings["padding"] = 40
+      settings["pointRadius"] = 4
+    } else if (width < 600) {
       settings["padding"] = 60
       settings["pointRadius"] = 5
     } else {
@@ -89,11 +77,11 @@ class App extends Component {
   }
 
   removePoint() {
-    this.setState({sides: Math.max(this.state.sides - 1, 1)})
+    this.setState({sides: Math.max(this.state.sides - 1, this.state.minSides)})
   }
 
   addPoint() {
-    this.setState({sides: Math.min(this.state.sides + 1, 8)})
+    this.setState({sides: Math.min(this.state.sides + 1, this.state.maxSides)})
   }
 
   componentWillMount () {
@@ -132,13 +120,13 @@ class App extends Component {
     const drawLast = []
 
     return (
-      <div className="App" style={{ backgroundColor: this.state.backgroundColor}}>
+      <div className="App" style={{ backgroundColor: this.state.backgroundColor, overflow: 'hidden'}}>
         { this.state.displayColorPickers ? <div className="color-pickers">
-          <ColorPicker color={tinycolor(this.state.backgroundColor).toRgb()} disableAlpha={false}
+          <ColorPicker color={tinycolor(this.state.backgroundColor).toRgb()} disableAlpha={true}
             handleChange={ (color) => this.setState({backgroundColor: color.hex}) } />
           <ColorPicker color={tinycolor(this.state.lineColor).toRgb()} disableAlpha={true}
             handleChange={ (color) => this.setState({lineColor: color.hex}) } />
-          <ColorPicker color={tinycolor(this.state.dottedColor).toRgb()} disableAlpha={false}
+          <ColorPicker color={tinycolor(this.state.dottedColor).toRgb()} disableAlpha={true}
             handleChange={ (color) => this.setState({dottedColor: color.hex }) } />
             </div> : null
         } 
