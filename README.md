@@ -2,6 +2,8 @@
 
 Inspired by the twitter avatar of [@lifewinning](https://mobile.twitter.com/lifewinning). I wanted to be able to generate them in different colors and N-vertexes.
 
+I also added a couple small animations to make things more interesting.
+
 ## See it live
 
 [View the demo](http://blog.zmitri.com/network/)
