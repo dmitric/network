@@ -19,8 +19,8 @@ class App extends Component {
     super(props)
 
     this.state = {
-      sides: 4,
-      chanceDotted: 0.33333,
+      sides: 6,
+      chanceDotted: 1/3,
       lineColor: colorSet.lineColor,
       backgroundColor: colorSet.backgroundColor,
       dottedColor: colorSet.dottedColor,
