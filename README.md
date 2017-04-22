@@ -4,7 +4,9 @@ Inspired by the twitter avatar of [@lifewinning](https://mobile.twitter.com/life
 
 ## See it live
 
-[Demo](http://blog.zmitri.com/network/)
+[View the demo](http://blog.zmitri.com/network/)
+
+![The interface](http://i.imgur.com/MW447sO.png)
 
 ## Interactions
 
