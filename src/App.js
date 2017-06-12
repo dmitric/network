@@ -60,10 +60,25 @@ class App extends Component {
     this.setState(settings)
   }
 
+  handleSave () {
+    const svgData = document.getElementsByTagName('svg')[0].outerHTML   
+    const link = document.createElement('a')
+    
+    var svgBlob = new Blob([svgData], { type:"image/svg+xml;charset=utf-8" })
+    var svgURL = URL.createObjectURL(svgBlob)
+    link.href = svgURL 
+
+    link.setAttribute('download', `network.svg`)
+    link.click()
+  }
+
   handleKeydown (ev) {
     if (ev.which === 67) {
       ev.preventDefault()
       this.setState({displayColorPickers: !this.state.displayColorPickers})
+    } else if (ev.which === 83 && (ev.metaKey || ev.ctrlKey)) {
+      ev.preventDefault()
+      this.handleSave()
     } else if (ev.which === 82) {
       ev.preventDefault()
       this.forceUpdate()
